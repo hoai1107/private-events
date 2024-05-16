@@ -1,0 +1,9 @@
+<div id="<%= dom_id event %>">
+  <h3><%= event.title %></h3>
+  <p><%= event.location %></p>
+  <p><%= event.event_date %></p>
+
+  <% if current_user %>
+    <%= button_to "Attend this event", attend_event_path(event.id), method: :post %>
+  <% end %>
+</div>

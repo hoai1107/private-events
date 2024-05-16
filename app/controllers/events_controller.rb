@@ -65,6 +65,13 @@ class EventsController < ApplicationController
     redirect_to event_url(@event)
   end
 
+  def unattend_event
+    @event = Event.find(params[:id])
+    current_user.attended_events.delete(@event)
+
+    redirect_to users_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event

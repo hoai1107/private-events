@@ -3,7 +3,10 @@
   <p><%= event.location %></p>
   <p><%= event.event_date %></p>
 
-  <% if current_user %>
-    <%= button_to "Attend this event", attend_event_path(event.id), method: :post %>
-  <% end %>
+  <h4>Attendees</h4>
+  <ul>
+    <% event.attendees.each do |attendee| %>
+      <li><%= attendee.email %></li>
+    <% end %>
+  </ul>
 </div>

@@ -1,2 +1,21 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>User <%= @user.email %></h1>
+
+<h2>Attended events</h2>
+
+<h3>Upcoming Events</h3>
+<p><%= "No events" unless @upcoming_events.length > 0 %></p>
+<% @upcoming_events.each do |event| %>
+  <%= render event %>
+  <p>
+    <%= link_to "Show this event", event %>
+  </p>
+<% end %>
+
+<h3>Past events</h3>
+<p><%= "No events" unless @past_events.length > 0 %></p>
+<% @past_events.each do |event| %>
+  <%= render event %>
+  <p>
+    <%= link_to "Show this event", event %>
+  </p>
+<% end %>
